@@ -17,14 +17,17 @@ public class EchoService extends HttpServlet {
 		PrintWriter out = resp.getWriter();
 		System.out.println("RequestURL="+req.getRequestURL());
 		System.out.println("QueryString="+req.getQueryString());
-		out.println("{\"data\":{\"result\":\"ok\",\"request_url\":\""+req.getRequestURL()+"\",\"query_string\":\""+req.getQueryString()+"\"}}");
+		out.println("{\"data\":{\"method\":\"GET\",\"request_url\":\""+req.getRequestURL()+"\",\"query_string\":\""+req.getQueryString()+"\"}}");
 	}
 
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		super.doPost(req, resp);
+		resp.setContentType("application/json; charset=UTF-8");
+		PrintWriter out = resp.getWriter();
+		System.out.println("RequestURL="+req.getRequestURL());
+		System.out.println("QueryString="+req.getQueryString());
+		out.println("{\"data\":{\"method\":\"POST\",\"request_url\":\""+req.getRequestURL()+"\",\"query_string\":\""+req.getQueryString()+"\"}}");
 	}
 
 }
